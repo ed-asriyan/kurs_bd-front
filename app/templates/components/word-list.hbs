@@ -1,0 +1,20 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Word</th>
+    <th>Description</th>
+    <th>ID</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each words as |word|}}
+    <tr class="">
+      <td>{{word.name}}</td>
+      <td>{{word.description}}</td>
+      <td>
+        <button class="btn btn-info">More info</button>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
