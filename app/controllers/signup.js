@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  session: Ember.inject.service('session'),
+
   email: '',
   nickname: '',
   password: '',
@@ -8,8 +10,11 @@ export default Ember.Controller.extend({
 
   actions: {
     submit() {
-      // todo:
-      this.transitionToRoute('index');
+      this.get('session').register(this.get('nickname'), this.get('email'), this.get('password')).then(function (user) {
+        this.transitionToRoute('index');
+      }.bind(this)).catch(function (e) {
+        alert(JSON.stringify(e));
+      }.bind(this));
     },
   },
 

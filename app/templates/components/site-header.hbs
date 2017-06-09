@@ -5,7 +5,11 @@
     {{/link-to}}
   </div>
   <div class="col-xs-3">
-    {{#link-to 'signin' class='btn btn-default btn-md' role="button"}}Sign In{{/link-to}}
-    {{#link-to 'signup' class='btn btn-default btn-md'}}Sign Up{{/link-to}}
+    {{#if user}}
+      <button class='btn btn-default btn-md' role="button" {{action 'logout'}}>Logout ({{user.view.username}})</button>
+    {{else}}
+      {{#link-to 'signin' class='btn btn-default btn-md' role="button"}}Sign In{{/link-to}}
+      {{#link-to 'signup' class='btn btn-default btn-md'}}Sign Up{{/link-to}}
+    {{/if}}
   </div>
 </div>
