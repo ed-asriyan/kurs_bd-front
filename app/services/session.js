@@ -28,14 +28,8 @@ const _call = function (httpMethod, url, content_type, params, body) {
 
   return fetch(__url, initPomise)
     .then(response => {
+      if (response.status / 100 !== 2) throw response;
       return response.json();
-    })
-    .then(response => {
-      if (response.message !== "OK") {
-        throw new Error(response.message);
-      } else {
-        return response;
-      }
     });
 };
 
