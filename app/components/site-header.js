@@ -3,8 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   session: Ember.inject.service('session'),
 
-  user: Ember.computed.alias('session.currentUser'),
-  
+  user: Ember.computed.alias('session.user'),
+
   actions: {
     logout() {
       return this.get('session').logout().then(function () {

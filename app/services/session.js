@@ -40,18 +40,18 @@ const _call = function (httpMethod, url, content_type, params, body) {
 };
 
 export default Ember.Service.extend({
-  init() {
-    this._super();
-    this.get('data');
-  },
-
   currentUser: null,
+
+  user: Ember.computed('currentUser', function () {
+    if (!this.get('currentUser')) this.data();
+    return this.get('currentUser');
+  }),
 
   register(username, email, password) {
     return _call("POST", "user/register", "application/json", null, {
       username, email, password
     }).then(function (user) {
-      return this.get('data');
+      return this.data();
     }.bind(this));
   },
 
@@ -59,7 +59,7 @@ export default Ember.Service.extend({
     return _call("POST", "user/login", "application/json", null, {
       username, password
     }).then(function () {
-      return this.get('data');
+      return this.data();
     }.bind(this));
   },
 
@@ -73,7 +73,7 @@ export default Ember.Service.extend({
     return _call("POST", "user/update", "application/json", null, {
       username, email, password
     }).then(function () {
-      return this.get('data');
+      return this.data();
     }.bind(this));
   },
 
@@ -88,5 +88,4 @@ export default Ember.Service.extend({
       this.set('currentUser', null);
     }.bind(this));
   },
-
 });
