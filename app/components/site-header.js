@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   actions: {
     logout() {
       return this.get('session').logout().then(function () {
-        this.transitionToRoute('index');
+        this.get('router').transitionTo('index');
       }.bind(this)).catch(function (e) {
         alert(JSON.stringify(e));
       }.bind(this));
