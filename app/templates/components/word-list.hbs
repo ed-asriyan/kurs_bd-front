@@ -3,18 +3,26 @@
   <tr>
     <th>Word</th>
     <th>Description</th>
-    <th>ID</th>
+    <th>Slang</th>
+    <th>Dialect</th>
+    <th>Link</th>
   </tr>
   </thead>
   <tbody>
-  {{#each words as |word|}}
-    <tr class="">
-      <td>{{word.name}}</td>
-      <td>{{word.description}}</td>
-      <td>
-        <button class="btn btn-info">More info</button>
-      </td>
-    </tr>
-  {{/each}}
+  {{#if words}}
+    {{#each words as |word|}}
+      <tr class="">
+        <td>{{word.word}}</td>
+        <td>{{word.discription}}</td>
+        <td>{{word.slang}}</td>
+        <td>{{word.dialect}}</td>
+        <td>
+          <a href="{{word.url}}" class="btn btn-info" target="_blank">Download</a>
+        </td>
+      </tr>
+    {{/each}}
+  {{else}}
+    <h2 align="middle">Loading...</h2>
+  {{/if}}
   </tbody>
 </table>
