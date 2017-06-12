@@ -15,7 +15,7 @@ export default Ember.Service.extend({
     if (slang) {
       body.slang = slang;
     }
-    return this.get('network').calll("POST", "dictionary/search", "application/json", null, body);
+    return this.get('network').call("POST", "dictionary/search", "application/json", null, body);
   },
 
   wordinsymbol(word, dialect) {

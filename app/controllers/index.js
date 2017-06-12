@@ -5,10 +5,35 @@ export default Ember.Controller.extend({
 
   words: null,
 
+  word_search: null,
+  dialect_search: null,
+  slang_search: null,
+
+  select_slangs: null,
+  select_dialects: null,
+
+  actions: {
+    search(){
+      this.get('dictionary').search(this.get('word_search'),
+        this.get('dialect_search'),
+        this.get('slang_search')).then(words => {
+        this.set('words',words);
+      }).bind(this).catch(e => {
+        alert(JSON.stringify(e));
+      });
+    },
+  },
+
   init() {
     this._super();
     this.get('dictionary').words().then(function (words) {
       this.set('words', words);
+    }.bind(this));
+    this.get('dictionary').dialects().then(function (dialects) {
+      this.set('select_dialects', dialects);
+    }.bind(this));
+    this.get('dictionary').slangs().then(function (slangs) {
+      this.set('select_slangs', slangs);
     }.bind(this));
   },
 });
