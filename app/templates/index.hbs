@@ -1,5 +1,29 @@
+<div>
+  <div class="row">
+    {{input value=word_search class='search__word' placeholder='word' type="text"}}
+    <button class="search__btn" {{action 'search'}}>Search</button>
+
+    <span>Dialect:</span>
+    <select class="search__select_dialects" onchange={{action 'getdialect'}}>
+      <option>All</option>
+      {{#each select_dialects as |dialect|}}
+        <option>{{dialect.dialect}}</option>
+      {{/each}}
+    </select>
+
+    <span>Slang:</span>
+    <select class="search__select_slangs" onchange={{action 'getslang'}}>
+      <option>All</option>
+      {{#each select_slangs as |slang|}}
+        <option>{{slang.slang}}</option>
+      {{/each}}
+    </select>
+
+  </div>
+</div>
 <div class="row">
   <div class="col-md-6">
     {{word-list words=words}}
   </div>
 </div>
+
