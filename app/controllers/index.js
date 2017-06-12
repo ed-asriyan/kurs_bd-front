@@ -23,9 +23,9 @@ export default Ember.Controller.extend({
       });
     },
 
-    getslang(){
-      this.slang_search = document.getElementsByClassName("search__select_slangs")[0].value;
-      alert(this.slang_search);
+    getslang(value){
+      this.set('slang_search',value);
+      alert(value);
     },
 
     getdialect(){

@@ -12,7 +12,7 @@
     </select>
 
     <span>Slang:</span>
-    <select class="search__select_slangs" onchange={{action 'getslang'}}>
+    <select class="search__select_slangs" onchange={{action 'getslang' value="target.value"}}>
       <option>All</option>
       {{#each select_slangs as |slang|}}
         <option>{{slang.slang}}</option>
