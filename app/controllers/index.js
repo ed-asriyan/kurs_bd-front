@@ -24,13 +24,17 @@ export default Ember.Controller.extend({
     },
 
     getslang(value){
+      if(value === "All"){
+        this.set('slang_search',null);
+      }
       this.set('slang_search',value);
-      alert(value);
     },
 
-    getdialect(){
-      this.dialect_search = document.getElementsByClassName("search__select_dialects")[0].value;
-      alert(this.dialect_search);
+    getdialect(value){
+      if(value === "All"){
+        this.set('dialect_search',null);
+      }
+      this.set('dialect_search',value);
     },
   },
 

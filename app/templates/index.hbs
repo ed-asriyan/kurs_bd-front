@@ -4,7 +4,7 @@
     <button class="search__btn" {{action 'search'}}>Search</button>
 
     <span>Dialect:</span>
-    <select class="search__select_dialects" onchange={{action 'getdialect'}}>
+    <select class="search__select_dialects" onchange={{action 'getdialect' value="target.value"}}>
       <option>All</option>
       {{#each select_dialects as |dialect|}}
         <option>{{dialect.dialect}}</option>
