@@ -26,6 +26,7 @@ export default Ember.Controller.extend({
     getslang(value){
       if(value === "All"){
         this.set('slang_search',null);
+        return;
       }
       this.set('slang_search',value);
     },
@@ -33,6 +34,7 @@ export default Ember.Controller.extend({
     getdialect(value){
       if(value === "All"){
         this.set('dialect_search',null);
+        return;
       }
       this.set('dialect_search',value);
     },
