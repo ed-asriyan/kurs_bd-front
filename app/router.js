@@ -9,6 +9,10 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('signin');
   this.route('signup');
+  this.route('languages');
+  this.route('dialects');
+  this.route('slangs');
+  this.route('symbols');
 });
 
 export default Router;

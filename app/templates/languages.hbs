@@ -1,0 +1,20 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Language</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#if languages}}
+    {{#each languages as |language|}}
+      <tr class="">
+        <td>{{language.language}}</td>
+        <td>{{language.description}}</td>
+      </tr>
+    {{/each}}
+  {{else}}
+    <h2 align="middle">Loading...</h2>
+  {{/if}}
+  </tbody>
+</table>

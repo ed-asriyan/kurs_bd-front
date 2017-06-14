@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Dialect</th>
+    <th>Language</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#if dialects}}
+    {{#each dialects as |dialect|}}
+      <tr class="">
+        <td>{{dialect.dialect}}</td>
+        <td>{{dialect.language}}</td>
+        <td>{{dialect.description}}</td>
+      </tr>
+    {{/each}}
+  {{else}}
+    <h2 align="middle">Loading...</h2>
+  {{/if}}
+  </tbody>
+</table>
