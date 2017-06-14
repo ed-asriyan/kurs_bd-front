@@ -32,6 +32,6 @@ export default Ember.Service.extend({
   },
 
   symbols() {
-    return this.__fetch.call("GET", "dictionary/symbols", "application/json", null, null);
+    return this.get('network').call("GET", "dictionary/symbols", "application/json", null, null);
   },
 });
