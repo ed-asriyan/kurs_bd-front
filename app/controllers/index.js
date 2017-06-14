@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   dictionary: Ember.inject.service('dictionary'),
+  session: Ember.inject.service('session'),
+  user: Ember.computed.alias('session.user'),
 
   words: null,
 
