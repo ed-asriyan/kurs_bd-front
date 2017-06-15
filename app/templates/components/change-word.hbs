@@ -2,12 +2,21 @@
 <span>Dialect:</span>
 <select class="changeword__select_dialects" onchange={{action 'getdialect' value="target.value"}}>
   {{#each select_dialects as |dialect|}}
-    <option>{{dialect.dialect}}</option>
+    {{#if dialect.selected}}
+        <option selected>{{dialect.dialect}}</option>
+    {{else}}
+        <option>{{dialect.dialect}}</option>
+    {{/if}}
   {{/each}}
 </select>
 <span>Slang:</span>
 <select class="changeword__select_slangs" onchange={{action 'getslang' value="target.value"}}>
   {{#each select_slangs as |slang|}}
-    <option>{{slang.slang}}</option>
+    {{#if slang.selected}}
+      <option selected>{{slang.slang}}</option>
+    {{else}}
+      <option>{{slang.slang}}</option>
+    {{/if}}
   {{/each}}
 </select>
+<textarea onchange={{action 'getdescription' value='target.value'}}>{{word.description}}</textarea>
