@@ -44,9 +44,6 @@ export default Ember.Controller.extend({
 
   init() {
     this._super();
-    this.get('dictionary').words().then(function (words) {
-      this.set('words', words);
-    }.bind(this));
     this.get('dictionary').dialects().then(function (dialects) {
       this.set('select_dialects', dialects);
     }.bind(this));
