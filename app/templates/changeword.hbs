@@ -1,0 +1,21 @@
+<span>{{word.word}}</span>
+<span>Dialect:</span>
+<select class="search__select_dialects" onchange={{action 'getdialect' value="target.value"}}>
+  {{#each select_dialects as |dialect|}}
+    {{#if dialect.selected}}
+        <option selected>{{dialect.dialect}}</option>
+    {{else}}
+        <option>{{dialect.dialect}}</option>
+    {{/if}}
+  {{/each}}
+</select>
+<span>Slang:</span>
+<select class="search__select_slangs" onchange={{action 'getslang' value="target.value"}}>
+  {{#each select_slangs as |slang|}}
+    {{#if slang.selected}}
+      <option selected>{{slang.dialect}}</option>
+    {{else}}
+      <option>{{slang.dialect}}</option>
+    {{/if}}>
+  {{/each}}
+</select>

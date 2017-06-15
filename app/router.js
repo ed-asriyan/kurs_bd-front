@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('dialects');
   this.route('slangs');
   this.route('symbols');
+  this.route('changeword');
 });
 
 export default Router;
