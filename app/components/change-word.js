@@ -6,7 +6,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   dictionary: Ember.inject.service('dictionary'),
   managedictionary: Ember.inject.service('managedictionary'),
-  changeword_controller: Ember.inject.controller('changeword'),
+  index: Ember.inject.controller('index'),
 
   word: null,
   select_dialects: null,
@@ -55,9 +55,14 @@ export default Ember.Component.extend({
     changeword(){
       this.get('managedictionary').change_word(this.get('word').id,
         this.get('slang'),this.get('dialect'),this.get('description'))
-        .then((response)=> {
-        alert(response.message);
-      }).catch(e => {
+        .then(function (response) {
+
+          this.get('dictionary').words().then(function (words) {
+            this.get('index').set('words',words);
+          }.bind(this));
+
+          alert(response.message);
+      }.bind(this)).catch(e => {
         alert(e.message)
       })
     }

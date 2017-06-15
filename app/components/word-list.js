@@ -11,10 +11,4 @@ export default Ember.Component.extend({
       this.get('index').transitionToRoute('changeword');
     }
   },
-
-  didReceiveAttrs(){
-    this.get('dictionary').words().then(function (words) {
-      this.set('words', words);
-    }.bind(this));
-  }
 });
