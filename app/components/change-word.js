@@ -30,6 +30,9 @@ export default Ember.Component.extend({
         }
       })
     }.bind(this));
+    this.set('dialect', this.get('word').dialect);
+    this.set('slang', this.get('word').slang);
+    this.set('description', this.get('word').description);
   },
 
   dialect: null,
@@ -53,9 +56,9 @@ export default Ember.Component.extend({
       this.get('managedictionary').change_word(this.get('word').id,
         this.get('slang'),this.get('dialect'),this.get('description'))
         .then((response)=> {
-        alert(response);
+        alert(response.message);
       }).catch(e => {
-        alert(e)
+        alert(e.message)
       })
     }
   },
