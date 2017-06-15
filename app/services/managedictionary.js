@@ -7,13 +7,9 @@ export default Ember.Service.extend({
   network: Ember.inject.service('network'),
 
   create_word(word,dialect,slang,description,file){
-    return this.get('network').call("POST","managedictionary/createword","multipart/form-data",
-      {
-        json:{
+    return this.get('network').call_file("managedictionary/createword", {
           word,dialect,slang,description
-        },
-        file: file
-      },null);
+        },file);
   },
 
   create_dialect(dialect,description,language){

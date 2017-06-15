@@ -33,4 +33,34 @@ export default Ember.Service.extend({
         return response.json();
       });
   },
+
+  call_file(url,params,file) {
+    const initPomise = {
+      method: "POST",
+      mode: 'cors',
+      credentials: 'include',
+    };
+
+    let __url = "//kursbd-backend.herokuapp.com/" + url;
+
+    let formData = new FormData();
+
+    if (params !== null) {
+      for(let key in params){
+        alert(key);
+        formData.append(key,params[key]);
+      }
+    }
+
+    if(file !== null){
+      formData.append("file",file);
+    }
+
+    initPomise.body = formData;
+    return fetch(__url, initPomise)
+      .then(response => {
+        if (response.status / 100 !== 2) throw response;
+        return response.json();
+      });
+  },
 });
