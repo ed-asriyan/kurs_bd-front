@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('slangs');
   this.route('symbols');
   this.route('changeword');
+  this.route('createword');
 });
 
 export default Router;

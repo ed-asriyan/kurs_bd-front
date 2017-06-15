@@ -40,6 +40,10 @@ export default Ember.Controller.extend({
       }
       this.set('dialect_search',value);
     },
+
+    createword(){
+      this.transitionToRoute('createword');
+    }
   },
 
   init() {
