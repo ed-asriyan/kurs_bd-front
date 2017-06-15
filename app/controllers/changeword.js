@@ -7,8 +7,8 @@ export default Ember.Controller.extend({
   dictionary: Ember.inject.service('dictionary'),
   word: null,
 
-  dialect: this.get('word').dialect,
-  slang: this.get('word').slang,
+  dialect: null,
+  slang: null,
 
   select_slangs: null,
   select_dialects: null,
@@ -24,21 +24,14 @@ export default Ember.Controller.extend({
   },
 
   init() {
-    this._super();
     this.get('dictionary').dialects().then(function (dialects) {
-      this.set('select_dialects', dialects);
-      this.get('select_dialects').forEach(iter => {
-        if(iter === this.get('word').dialect){
-          iter.selected = true;
-        }
+      dialects.forEach(dialect => {
+        Ember.$(".changeword__select_dialects").add(`<option>${dialect.dialect}</option>`);
       })
     }.bind(this));
     this.get('dictionary').slangs().then(function (slangs) {
-      this.set('select_slangs', slangs);
-      this.get('select_slangs').forEach(iter => {
-        if(iter === this.get('word').slang){
-          iter.selected = true;
-        }
+      slangs.forEach(slang => {
+        Ember.$(".changeword__select_slangs").add(`<option>${slang.slang}</option>`);
       })
     }.bind(this));
   },
