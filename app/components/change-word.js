@@ -16,16 +16,16 @@ export default Ember.Component.extend({
     this.get('dictionary').dialects().then(function (dialects) {
       this.set('select_dialects',dialects);
       this.get('select_dialects').forEach(iter => {
-        if(this.get('word').get('dialect') === iter.get('dialect')){
-          iter.set('selected',true);
+        if(this.get('word').dialect === iter.dialect){
+          iter.selected = true;
         }
       })
     }.bind(this));
     this.get('dictionary').slangs().then(function (slangs) {
       this.set('select_slangs',slangs);
       this.get('select_slangs').forEach(iter => {
-        if(this.get('word').get('slang') === iter.get('slang')){
-          iter.set('selected',true);
+        if(this.get('word').slang === iter.slang){
+          iter.selected = true;
         }
       })
     }.bind(this));
