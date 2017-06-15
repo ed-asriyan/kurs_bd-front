@@ -15,5 +15,5 @@
 </select>
 <span>Description:</span>
 <textarea onchange={{action 'getdescription' value='target.value'}}></textarea>
-{{input value=file class='createword__inputfile' placeholder='new word' type="file"}}
-<button onclick={{action 'changeword' this.files}}>Создать</button>
+<input class='createword__inputfile' type="file" onchange={{action 'addfile' }}>
+<button onclick={{action 'changeword' }}>Создать</button>

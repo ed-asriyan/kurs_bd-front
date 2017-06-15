@@ -18,7 +18,9 @@
         <option>{{slang.slang}}</option>
       {{/each}}
     </select>
-    <button {{action 'createword'}}>Create word</button>
+    {{#if user.view.moderator}}
+       <button {{action 'createword'}}>Create word</button>
+    {{/if}}
   </div>
 </div>
 <div class="row">

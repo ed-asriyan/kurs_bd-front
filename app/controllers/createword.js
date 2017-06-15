@@ -28,10 +28,10 @@ export default Ember.Controller.extend({
   },
 
   actions: {
-    changeword(files){
+    changeword(){
       this.get('managedictionary').create_word(this.get('word'),
       this.get('dialect'),this.get('slang'),
-      this.get('description'),files[0]).then(function (response) {
+      this.get('description'),this.get('file')).then(function (response) {
         this.get('dictionary').words().then(function (words) {
           this.get('index').set('words',words);
         }.bind(this));
@@ -39,6 +39,11 @@ export default Ember.Controller.extend({
       }.bind(this)).catch((e)=>{
         alert(e.message)
       });
+    },
+
+
+    addfile(evt){
+      this.set('file',evt.target.files[0]);
     },
 
     getslang(value){
