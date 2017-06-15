@@ -25,13 +25,17 @@ export default Ember.Controller.extend({
 
   init() {
     this.get('dictionary').dialects().then(function (dialects) {
+      let select = document.getElementsByClassName("changeword__select_dialects");
       dialects.forEach(dialect => {
-        Ember.$(".changeword__select_dialects").add(`<option>${dialect.dialect}</option>`);
+        let option = document.createElement("option");
+        option.textContent = dialect.dialect;
+        select.appendChild(option);
+        //Ember.$(".changeword__select_dialects").add(`<option>${dialect.dialect}</option>`);
       })
     }.bind(this));
     this.get('dictionary').slangs().then(function (slangs) {
       slangs.forEach(slang => {
-        Ember.$(".changeword__select_slangs").add(`<option>${slang.slang}</option>`);
+        //Ember.$(".changeword__select_slangs").add(`<option>${slang.slang}</option>`);
       })
     }.bind(this));
   },
