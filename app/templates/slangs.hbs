@@ -19,7 +19,7 @@
         <td>{{slang.description}}</td>
         {{#if user.view.moderator}}
           <td>
-            <button>Change</button>
+            <button {{action "changeslang" slang}}>Change</button>
             <button>Delete</button>
           </td>
         {{/if}}

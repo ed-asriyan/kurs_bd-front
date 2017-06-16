@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
   dictionary: Ember.inject.service('dictionary'),
   session: Ember.inject.service('session'),
   user: Ember.computed.alias('session.user'),
+  changeslang_controller: Ember.inject.controller('changeslang'),
   slangs: null,
 
   init() {
@@ -19,6 +20,11 @@ export default Ember.Controller.extend({
   actions:{
     createslang(){
       this.transitionToRoute('createslang')
-    }
+    },
+
+    changeslang(slang){
+      this.get('changeslang_controller').set('slang',slang);
+      this.transitionToRoute('changeslang');
+    },
   }
 });

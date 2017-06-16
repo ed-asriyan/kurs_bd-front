@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
   dictionary: Ember.inject.service('dictionary'),
   session: Ember.inject.service('session'),
   user: Ember.computed.alias('session.user'),
+  changelanguage_controller: Ember.inject.controller('changelanguage'),
   languages: null,
 
   init() {
@@ -18,7 +19,8 @@ export default Ember.Controller.extend({
 
   actions: {
     changelanguage(language){
-
+      this.get('changelanguage_controller').set('language',language);
+      this.transitionToRoute('changelanguage');
     },
 
     createlanguage(){

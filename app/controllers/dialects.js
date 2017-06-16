@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
   dictionary: Ember.inject.service('dictionary'),
   session: Ember.inject.service('session'),
   user: Ember.computed.alias('session.user'),
+  changedialect_controller: Ember.inject.controller('changedialect'),
   dialects: null,
 
   init() {
@@ -19,6 +20,11 @@ export default Ember.Controller.extend({
   actions:{
     createdialect(){
       this.transitionToRoute('createdialect')
-    }
+    },
+
+    changedialect(dialect){
+      this.get('changedialect_controller').set('dialect',dialect);
+      this.transitionToRoute('changedialect');
+    },
   }
 });

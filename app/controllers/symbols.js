@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
   dictionary: Ember.inject.service('dictionary'),
   session: Ember.inject.service('session'),
   user: Ember.computed.alias('session.user'),
+  changesymbol_controller: Ember.inject.controller('changesymbol'),
   symbols: null,
 
   init() {
@@ -19,6 +20,11 @@ export default Ember.Controller.extend({
   actions:{
     createsymbol(){
       this.transitionToRoute('createsymbol')
-    }
+    },
+
+    changesymbol(symbol){
+      this.get('changesymbol_controller').set('symbol',symbol);
+      this.transitionToRoute('changesymbol');
+    },
   }
 });

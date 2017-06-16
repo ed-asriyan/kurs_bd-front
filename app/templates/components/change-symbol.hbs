@@ -1,0 +1,15 @@
+<span>{{symbol.symbol}}</span>
+<span>New name:</span>
+{{input value=newsymbol class='changesymbol__inputsymbol' placeholder='new name' type="text"}}
+<select class="changesymbol__select_dialects" onchange={{action 'getdialect' value="target.value"}}>
+  {{#each select_dialects as |dialect|}}
+    {{#if dialect.selected}}
+      <option selected>{{dialect.dialect}}</option>
+    {{else}}
+      <option>{{dialect.dialect}}</option>
+    {{/if}}
+  {{/each}}
+</select>
+<span>Description:</span>
+<textarea onchange={{action 'getdescription' value='target.value'}}>{{symbol.description}}</textarea>
+<button onclick={{action 'changesymbol'}}>Изменить</button>

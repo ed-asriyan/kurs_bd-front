@@ -21,7 +21,7 @@
         <td>{{dialect.description}}</td>
         {{#if user.view.moderator}}
           <td>
-            <button>Change</button>
+            <button {{action "changedialect" dialect}}>Change</button>
             <button>Delete</button>
           </td>
         {{/if}}

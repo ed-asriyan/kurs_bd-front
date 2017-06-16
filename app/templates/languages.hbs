@@ -19,7 +19,7 @@
         <td>{{language.description}}</td>
         {{#if user.view.moderator}}
         <td>
-          <button>Change</button>
+          <button {{action "changelanguage" language}}>Change</button>
           <button>Delete</button>
         </td>
         {{/if}}
