@@ -25,7 +25,7 @@ export default Ember.Service.extend({
   },
 
   create_slang(slang,description){
-    return this.__fetch.call("POST","managedictionary/createslang","application/json",null,{
+    return this.get('network').call("POST","managedictionary/createslang","application/json",null,{
       slang,description
     })
   },

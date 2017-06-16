@@ -58,7 +58,10 @@ export default Ember.Service.extend({
     initPomise.body = formData;
     return fetch(__url, initPomise)
       .then(response => {
-        if (response.status / 100 !== 2) throw response;
+        if (response.status / 100 !== 2){
+          alert(response.statusText);
+          throw response;
+        }
         return response.json();
       });
   },

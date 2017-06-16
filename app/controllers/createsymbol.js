@@ -26,10 +26,9 @@ export default Ember.Controller.extend({
       this.get('managedictionary').create_symbol(this.get('symbol'),
         this.get('dialect'),this.get('description'),
         this.get('file')).then(function (response) {
-        alert(response.message);
-      }.bind(this)).catch((e)=>{
-        alert(e.message)
-      });
+          if(response.message)
+            alert(response.message);
+      }.bind(this));
     },
 
 
