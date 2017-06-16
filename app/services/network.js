@@ -47,7 +47,6 @@ export default Ember.Service.extend({
 
     if (params !== null) {
       for(let key in params){
-        alert(key);
         formData.append(key,params[key]);
       }
     }

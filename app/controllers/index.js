@@ -16,7 +16,11 @@ export default Ember.Controller.extend({
 
   actions: {
     search(){
-      this.get('dictionary').search(this.get('word_search'),
+      let word = this.get('word_search');
+      if(word === ""){
+        word = null;
+      }
+      this.get('dictionary').search(word,
         this.get('dialect_search'),
         this.get('slang_search')).then(words => {
         this.set('words',words);
