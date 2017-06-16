@@ -15,4 +15,10 @@ export default Ember.Controller.extend({
       this.set('slangs', slangs);
     }.bind(this));
   },
+
+  actions:{
+    createslang(){
+      this.transitionToRoute('createslang')
+    }
+  }
 });

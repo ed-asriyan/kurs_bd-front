@@ -15,4 +15,14 @@ export default Ember.Controller.extend({
       this.set('languages', languages);
     }.bind(this));
   },
+
+  actions: {
+    changelanguage(language){
+
+    },
+
+    createlanguage(){
+      this.transitionToRoute('createlanguage')
+    }
+  }
 });

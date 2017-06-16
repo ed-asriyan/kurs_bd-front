@@ -15,4 +15,10 @@ export default Ember.Controller.extend({
       this.set('dialects', dialects);
     }.bind(this));
   },
+
+  actions:{
+    createdialect(){
+      this.transitionToRoute('createdialect')
+    }
+  }
 });

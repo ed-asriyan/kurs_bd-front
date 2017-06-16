@@ -8,33 +8,24 @@ export default Ember.Controller.extend({
   dictionary: Ember.inject.service('dictionary'),
   index: Ember.inject.controller('index'),
 
-  word: null,
+  symbol: null,
   select_dialects: null,
-  select_slangs: null,
   file: null,
-  slang: null,
   description: null,
-
+  dialect: null,
 
   init(){
     this.get('dictionary').dialects().then(function (dialects) {
       this.set('select_dialects',dialects);
       this.set('dialect',dialects[0].dialect);
     }.bind(this));
-    this.get('dictionary').slangs().then(function (slangs) {
-      this.set('select_slangs',slangs);
-      this.set('slang',slangs[0].slang);
-    }.bind(this));
   },
 
   actions: {
-    createword(){
-      this.get('managedictionary').create_word(this.get('word'),
-      this.get('dialect'),this.get('slang'),
-      this.get('description'),this.get('file')).then(function (response) {
-        this.get('dictionary').words().then(function (words) {
-          this.get('index').set('words',words);
-        }.bind(this));
+    createsymbol(){
+      this.get('managedictionary').create_symbol(this.get('symbol'),
+        this.get('dialect'),this.get('description'),
+        this.get('file')).then(function (response) {
         alert(response.message);
       }.bind(this)).catch((e)=>{
         alert(e.message)
@@ -44,10 +35,6 @@ export default Ember.Controller.extend({
 
     addfile(evt){
       this.set('file',evt.target.files[0]);
-    },
-
-    getslang(value){
-      this.set('slang',value);
     },
 
     getdialect(value){

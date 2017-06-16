@@ -15,4 +15,10 @@ export default Ember.Controller.extend({
       this.set('symbols', symbols);
     }.bind(this));
   },
+
+  actions:{
+    createsymbol(){
+      this.transitionToRoute('createsymbol')
+    }
+  }
 });

@@ -1,0 +1,11 @@
+{{input value=symbol class='createsymbol__inputsymbol' placeholder='new symbol' type="text"}}
+<span>Dialect:</span>
+<select class="createsymbol__select_dialects" onchange={{action 'getdialect' value="target.value"}}>
+  {{#each select_dialects as |dialect|}}
+    <option>{{dialect.dialect}}</option>
+  {{/each}}
+</select>
+<span>Description:</span>
+<textarea onchange={{action 'getdescription' value='target.value'}}></textarea>
+<input class='createsymbol__inputfile' type="file" onchange={{action 'addfile' }}>
+<button onclick={{action 'createsymbol' }}>Создать</button>

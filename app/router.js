@@ -15,6 +15,14 @@ Router.map(function() {
   this.route('symbols');
   this.route('changeword');
   this.route('createword');
+  this.route('changedialect');
+  this.route('createdialect');
+  this.route('changeslang');
+  this.route('createslang');
+  this.route('changelanguage');
+  this.route('createlanguage');
+  this.route('changesymbol');
+  this.route('createsymbol');
 });
 
 export default Router;

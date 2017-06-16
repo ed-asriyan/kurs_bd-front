@@ -31,13 +31,8 @@ export default Ember.Service.extend({
   },
 
   create_symbol(symbol,dialect,description,file){
-    return this.get('network').call("POST","managedictionary/createsymbol","multipart/form-data",
-      {
-        json:{
-          symbol,dialect,description
-        },
-        file: file
-      },null);
+    return this.get('network').call_file("managedictionary/createsymbol",
+      {symbol,dialect,description}, file);
   },
 
   change_word(word_id,new_slang,new_dialect,new_description){

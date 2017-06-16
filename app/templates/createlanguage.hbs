@@ -1,0 +1,4 @@
+{{input value=language class='createlanguage__inputlanguage' placeholder='new language' type="text"}}
+<span>Description:</span>
+<textarea onchange={{action 'getdescription' value='target.value'}}></textarea>
+<button onclick={{action 'createlanguage' }}>Создать</button>
