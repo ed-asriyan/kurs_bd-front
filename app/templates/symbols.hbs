@@ -1,3 +1,6 @@
+{{#if user.view.moderator}}
+  <button>Create symbol</button>
+{{/if}}
 <table class="table table-hover">
   <thead>
   <tr>
@@ -5,6 +8,9 @@
     <th>Dialect</th>
     <th>Description</th>
     <th>Download</th>
+    {{#if user.view.moderator}}
+      <th>Manage</th>
+    {{/if}}
   </tr>
   </thead>
   <tbody>
@@ -17,6 +23,12 @@
         <td>
           <a href="{{symbol.url}}" class="btn btn-info" target="_blank">Download</a>
         </td>
+        {{#if user.view.moderator}}
+          <td>
+            <button>Change</button>
+            <button>Delete</button>
+          </td>
+        {{/if}}
       </tr>
     {{/each}}
   {{else}}

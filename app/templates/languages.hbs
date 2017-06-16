@@ -1,8 +1,14 @@
+{{#if user.view.moderator}}
+<button>Create language</button>
+{{/if}}
 <table class="table table-hover">
   <thead>
   <tr>
     <th>Language</th>
     <th>Description</th>
+  {{#if user.view.moderator}}
+    <th>Manage</th>
+  {{/if}}
   </tr>
   </thead>
   <tbody>
@@ -11,6 +17,12 @@
       <tr class="">
         <td>{{language.language}}</td>
         <td>{{language.description}}</td>
+        {{#if user.view.moderator}}
+        <td>
+          <button>Change</button>
+          <button>Delete</button>
+        </td>
+        {{/if}}
       </tr>
     {{/each}}
   {{else}}
