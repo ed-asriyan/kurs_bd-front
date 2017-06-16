@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   user: Ember.computed.alias('session.user'),
   changesymbol_controller: Ember.inject.controller('changesymbol'),
+  managedictionary: Ember.inject.service('managedictionary'),
   symbols: null,
 
   init() {
@@ -26,5 +27,11 @@ export default Ember.Controller.extend({
       this.get('changesymbol_controller').set('symbol',symbol);
       this.transitionToRoute('changesymbol');
     },
+
+    deletesymbol(symbol){
+      this.get('managedictionary').delete_symbol(symbol.symbol,symbol.dialect).then(function (response) {
+        alert(response.message);
+      }.bind(this));
+    }
   }
 });

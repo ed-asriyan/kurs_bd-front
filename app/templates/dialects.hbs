@@ -22,7 +22,7 @@
         {{#if user.view.moderator}}
           <td>
             <button {{action "changedialect" dialect}}>Change</button>
-            <button>Delete</button>
+            <button {{action "deletedialect" dialect}}>Delete</button>
           </td>
         {{/if}}
       </tr>

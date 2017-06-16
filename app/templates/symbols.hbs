@@ -26,7 +26,7 @@
         {{#if user.view.moderator}}
           <td>
             <button {{action "changesymbol" symbol}}>Change</button>
-            <button>Delete</button>
+            <button {{action "deletesymbol" symbol}}>Delete</button>
           </td>
         {{/if}}
       </tr>

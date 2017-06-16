@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   user: Ember.computed.alias('session.user'),
   changedialect_controller: Ember.inject.controller('changedialect'),
+  managedictionary: Ember.inject.service('managedictionary'),
   dialects: null,
 
   init() {
@@ -26,5 +27,11 @@ export default Ember.Controller.extend({
       this.get('changedialect_controller').set('dialect',dialect);
       this.transitionToRoute('changedialect');
     },
+
+    deletedialect(dialect){
+      this.get('managedictionary').delete_dialect(dialect.dialect).then(function (response) {
+        alert(response.message);
+      }.bind(this));
+    }
   }
 });

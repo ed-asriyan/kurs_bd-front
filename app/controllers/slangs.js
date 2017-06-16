@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   user: Ember.computed.alias('session.user'),
   changeslang_controller: Ember.inject.controller('changeslang'),
+  managedictionary: Ember.inject.service('managedictionary'),
   slangs: null,
 
   init() {
@@ -26,5 +27,11 @@ export default Ember.Controller.extend({
       this.get('changeslang_controller').set('slang',slang);
       this.transitionToRoute('changeslang');
     },
+
+    deleteslang(slang){
+      this.get('managedictionary').delete_slang(slang.slang).then(function (response) {
+        alert(response.message);
+      }.bind(this));
+    }
   }
 });

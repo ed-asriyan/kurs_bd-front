@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   user: Ember.computed.alias('session.user'),
   changelanguage_controller: Ember.inject.controller('changelanguage'),
+  managedictionary: Ember.inject.service('managedictionary'),
   languages: null,
 
   init() {
@@ -25,6 +26,12 @@ export default Ember.Controller.extend({
 
     createlanguage(){
       this.transitionToRoute('createlanguage')
+    },
+
+    deletelanguage(language){
+      this.get('managedictionary').delete_language(language.language).then(function (response) {
+        alert(response.message);
+      }.bind(this));
     }
   }
 });

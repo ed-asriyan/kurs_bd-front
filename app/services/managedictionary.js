@@ -78,7 +78,7 @@ export default Ember.Service.extend({
   },
 
   delete_language(language){
-    return this.get('network').call("POST","managedictionary/deleteword","application/json",null,{
+    return this.get('network').call("POST","managedictionary/deletelanguage","application/json",null,{
       language
     })
   },
