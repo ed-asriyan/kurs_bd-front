@@ -23,6 +23,7 @@ Router.map(function() {
   this.route('createlanguage');
   this.route('changesymbol');
   this.route('createsymbol');
+  this.route('users');
 });
 
 export default Router;

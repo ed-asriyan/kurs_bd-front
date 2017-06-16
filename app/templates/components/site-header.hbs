@@ -9,6 +9,9 @@
     {{#link-to 'dialects' class='btn btn-default btn-md' role="button"}}Dialects{{/link-to}}
     {{#link-to 'slangs' class='btn btn-default btn-md' role="button"}}Slangs{{/link-to}}
     {{#link-to 'symbols' class='btn btn-default btn-md' role="button"}}Symbols{{/link-to}}
+    {{#if user.view.admin}}
+      {{#link-to 'users' class='btn btn-default btn-md' role="button"}}Users{{/link-to}}
+    {{/if}}
   </div>
   <div class="col-xs-2">
     {{#if user}}
