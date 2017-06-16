@@ -26,7 +26,7 @@
         <td>
         {{!--{{#link-to 'signin' class='btn btn-default btn-md' role="button"}}Sign In{{/link-to}}--}}
           <button {{action 'changeword' word}}>Change</button>
-          <button>Delete</button>
+          <button {{action 'deleteword' word}}>Delete</button>
         </td>
       {{/if}}
       </tr>
