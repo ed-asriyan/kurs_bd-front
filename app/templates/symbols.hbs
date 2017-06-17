@@ -1,3 +1,12 @@
+<span>Input word for convert: </span>
+{{input value=word class='convert__word' placeholder='word' type="text"}}
+<span>Dialect:</span>
+<select class="convert__select_dialects" onchange={{action 'getdialect' value="target.value"}}>
+  {{#each select_dialects as |dialect|}}
+    <option>{{dialect.dialect}}</option>
+  {{/each}}
+</select>
+<button {{action "convert"}}>Convert</button>
 {{#if user.view.moderator}}
   <button {{action "createsymbol"}}>Create symbol</button>
 {{/if}}
@@ -31,8 +40,6 @@
         {{/if}}
       </tr>
     {{/each}}
-  {{else}}
-    <h2 align="middle">Loading...</h2>
   {{/if}}
   </tbody>
 </table>

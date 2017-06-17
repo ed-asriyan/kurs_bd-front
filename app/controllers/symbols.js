@@ -10,11 +10,18 @@ export default Ember.Controller.extend({
   changesymbol_controller: Ember.inject.controller('changesymbol'),
   managedictionary: Ember.inject.service('managedictionary'),
   symbols: null,
+  dialect: null,
+  word: null,
+  select_dialects: null,
 
   init() {
     this._super();
     this.get('dictionary').symbols().then(function (symbols) {
       this.set('symbols', symbols);
+    }.bind(this));
+    this.get('dictionary').dialects().then(function (dialects) {
+      this.set('select_dialects', dialects);
+      this.set('dialect',dialects[0].dialect);
     }.bind(this));
   },
 
@@ -31,6 +38,16 @@ export default Ember.Controller.extend({
     deletesymbol(symbol){
       this.get('managedictionary').delete_symbol(symbol.symbol,symbol.dialect).then(function (response) {
         alert(response.message);
+      }.bind(this));
+    },
+
+    getdialect(value){
+      this.set('dialect',value);
+    },
+
+    convert(){
+      this.get('dictionary').wordinsymbol(this.get('word'),this.get('dialect')).then(function (symbols) {
+        this.set('symbols', symbols);
       }.bind(this));
     }
   }
