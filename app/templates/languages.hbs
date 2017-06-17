@@ -1,13 +1,13 @@
 {{#if user.view.moderator}}
-<button {{action "createlanguage"}}>Create language</button>
+<button {{action "createlanguage"}}>Создать язык</button>
 {{/if}}
 <table class="table table-hover">
   <thead>
   <tr>
-    <th>Language</th>
-    <th>Description</th>
+    <th>Язык</th>
+    <th>Описание</th>
   {{#if user.view.moderator}}
-    <th>Manage</th>
+    <th>Управление</th>
   {{/if}}
   </tr>
   </thead>
@@ -19,8 +19,8 @@
         <td>{{language.description}}</td>
         {{#if user.view.moderator}}
         <td>
-          <button {{action "changelanguage" language}}>Change</button>
-          <button {{action "deletelanguage" language}}>Delete</button>
+          <button {{action "changelanguage" language}}>Изменить</button>
+          <button {{action "deletelanguage" language}}>Удалить</button>
         </td>
         {{/if}}
       </tr>

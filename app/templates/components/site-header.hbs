@@ -1,24 +1,24 @@
 <div class="row">
   <div class="col-xs-4">
     {{#link-to 'index'}}
-      <h2>Kurs_bd</h2>
+      <h2>Словарь</h2>
     {{/link-to}}
   </div>
   <div class="col-xs-6 row">
-    {{#link-to 'languages' class='btn btn-default btn-md' role="button"}}Languages{{/link-to}}
-    {{#link-to 'dialects' class='btn btn-default btn-md' role="button"}}Dialects{{/link-to}}
-    {{#link-to 'slangs' class='btn btn-default btn-md' role="button"}}Slangs{{/link-to}}
-    {{#link-to 'symbols' class='btn btn-default btn-md' role="button"}}Symbols{{/link-to}}
+    {{#link-to 'languages' class='btn btn-default btn-md' role="button"}}Языки{{/link-to}}
+    {{#link-to 'dialects' class='btn btn-default btn-md' role="button"}}Диалекты{{/link-to}}
+    {{#link-to 'slangs' class='btn btn-default btn-md' role="button"}}Сленги{{/link-to}}
+    {{#link-to 'symbols' class='btn btn-default btn-md' role="button"}}Символы{{/link-to}}
     {{#if user.view.admin}}
-      {{#link-to 'users' class='btn btn-default btn-md' role="button"}}Users{{/link-to}}
+      {{#link-to 'users' class='btn btn-default btn-md' role="button"}}Пользователи{{/link-to}}
     {{/if}}
   </div>
   <div class="col-xs-2">
     {{#if user}}
-      <button class='btn btn-default btn-md' role="button" {{action 'logout'}}>Logout ({{user.view.username}})</button>
+      <button class='btn btn-default btn-md' role="button" {{action 'logout'}}>Выход ({{user.view.username}})</button>
     {{else}}
-      {{#link-to 'signin' class='btn btn-default btn-md' role="button"}}Sign In{{/link-to}}
-      {{#link-to 'signup' class='btn btn-default btn-md'}}Sign Up{{/link-to}}
+      {{#link-to 'signin' class='btn btn-default btn-md' role="button"}}Вход{{/link-to}}
+      {{#link-to 'signup' class='btn btn-default btn-md'}}Регистрация{{/link-to}}
     {{/if}}
   </div>
 </div>

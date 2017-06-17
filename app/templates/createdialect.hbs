@@ -1,10 +1,10 @@
 {{input value=dialect class='createdialect__inputdialect' placeholder='new dialect' type="text"}}
-<span>Language:</span>
+<span>Язык:</span>
 <select class="createdialect__select_languages" onchange={{action 'getlanguage' value="target.value"}}>
   {{#each select_languages as |language|}}
     <option>{{language.language}}</option>
   {{/each}}
 </select>
-<span>Description:</span>
+<span>Описание:</span>
 <textarea onchange={{action 'getdescription' value='target.value'}}></textarea>
 <button onclick={{action 'createdialect' }}>Создать</button>

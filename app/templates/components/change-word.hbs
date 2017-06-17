@@ -1,5 +1,5 @@
 <span>{{word.word}}</span>
-<span>Dialect:</span>
+<span>Диалект:</span>
 <select class="changeword__select_dialects" onchange={{action 'getdialect' value="target.value"}}>
   {{#each select_dialects as |dialect|}}
     {{#if dialect.selected}}
@@ -9,7 +9,7 @@
     {{/if}}
   {{/each}}
 </select>
-<span>Slang:</span>
+<span>Сленг:</span>
 <select class="changeword__select_slangs" onchange={{action 'getslang' value="target.value"}}>
   {{#each select_slangs as |slang|}}
     {{#if slang.selected}}
@@ -19,6 +19,6 @@
     {{/if}}
   {{/each}}
 </select>
-<span>Description:</span>
+<span>Описание:</span>
 <textarea onchange={{action 'getdescription' value='target.value'}}>{{word.description}}</textarea>
 <button onclick={{action 'changeword'}}>Изменить</button>

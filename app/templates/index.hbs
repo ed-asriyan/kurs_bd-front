@@ -1,9 +1,9 @@
 <div>
   <div class="row">
     {{input value=word_search class='search__word' placeholder='word' type="text"}}
-    <button class="search__btn" {{action 'search'}}>Search</button>
+    <button class="search__btn" {{action 'search'}}>Поиск</button>
 
-    <span>Dialect:</span>
+    <span>Диалект:</span>
     <select class="search__select_dialects" onchange={{action 'getdialect' value="target.value"}}>
       <option>All</option>
       {{#each select_dialects as |dialect|}}
@@ -11,7 +11,7 @@
       {{/each}}
     </select>
 
-    <span>Slang:</span>
+    <span>Сленг:</span>
     <select class="search__select_slangs" onchange={{action 'getslang' value="target.value"}}>
       <option>All</option>
       {{#each select_slangs as |slang|}}
@@ -19,7 +19,7 @@
       {{/each}}
     </select>
     {{#if user.view.moderator}}
-       <button {{action 'createword'}}>Create word</button>
+       <button {{action 'createword'}}>Создать слово</button>
     {{/if}}
   </div>
 </div>

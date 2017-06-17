@@ -1,13 +1,13 @@
 <table class="table table-hover">
   <thead>
   <tr>
-    <th>Word</th>
-    <th>Description</th>
-    <th>Slang</th>
-    <th>Dialect</th>
-    <th>Link</th>
+    <th>Слово</th>
+    <th>Описание</th>
+    <th>Сленг</th>
+    <th>Диалект</th>
+    <th>Ссылка</th>
   {{#if user.view.moderator}}
-    <th>Manage</th>
+    <th>Управление</th>
   {{/if}}
   </tr>
   </thead>
@@ -25,8 +25,8 @@
       {{#if user.view.moderator}}
         <td>
         {{!--{{#link-to 'signin' class='btn btn-default btn-md' role="button"}}Sign In{{/link-to}}--}}
-          <button {{action 'changeword' word}}>Change</button>
-          <button {{action 'deleteword' word}}>Delete</button>
+          <button {{action 'changeword' word}}>Изменить</button>
+          <button {{action 'deleteword' word}}>Удалить</button>
         </td>
       {{/if}}
       </tr>

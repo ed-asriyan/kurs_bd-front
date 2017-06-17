@@ -1,14 +1,14 @@
 {{#if user.view.moderator}}
-  <button {{action "createdialect"}}>Create dialect</button>
+  <button {{action "createdialect"}}>Создать диалект</button>
 {{/if}}
 <table class="table table-hover">
   <thead>
   <tr>
-    <th>Dialect</th>
-    <th>Language</th>
-    <th>Description</th>
+    <th>Диалект</th>
+    <th>Язык</th>
+    <th>Описание</th>
     {{#if user.view.moderator}}
-      <th>Manage</th>
+      <th>Управление</th>
     {{/if}}
   </tr>
   </thead>
@@ -21,8 +21,8 @@
         <td>{{dialect.description}}</td>
         {{#if user.view.moderator}}
           <td>
-            <button {{action "changedialect" dialect}}>Change</button>
-            <button {{action "deletedialect" dialect}}>Delete</button>
+            <button {{action "changedialect" dialect}}>Изменить</button>
+            <button {{action "deletedialect" dialect}}>Удалить</button>
           </td>
         {{/if}}
       </tr>
