@@ -1,0 +1,45 @@
+<span>Введите слова для перевода: </span>
+{{input value=word class='convert__word' placeholder='word' type="text"}}
+<span>Диалект:</span>
+<select class="convert__select_dialects" onchange={{action 'getdialect' value="target.value"}}>
+  {{#each select_dialects as |dialect|}}
+    <option>{{dialect.dialect}}</option>
+  {{/each}}
+</select>
+<button {{action "convert"}}>Перевести</button>
+{{#if user.view.moderator}}
+  <button {{action "createsymbol"}}>Создать символ</button>
+{{/if}}
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Символ</th>
+    <th>Диалект</th>
+    <th>Описание</th>
+    <th>Ссылка</th>
+    {{#if user.view.moderator}}
+      <th>Управление</th>
+    {{/if}}
+  </tr>
+  </thead>
+  <tbody>
+  {{#if symbols}}
+    {{#each symbols as |symbol|}}
+      <tr class="">
+        <td>{{symbol.symbol}}</td>
+        <td>{{symbol.dialect}}</td>
+        <td>{{symbol.description}}</td>
+        <td>
+          <a href="{{symbol.url}}" class="btn btn-info" target="_blank">Download</a>
+        </td>
+        {{#if user.view.moderator}}
+          <td>
+            <button {{action "changesymbol" symbol}}>Изменить</button>
+            <button {{action "deletesymbol" symbol}}>Удалить</button>
+          </td>
+        {{/if}}
+      </tr>
+    {{/each}}
+  {{/if}}
+  </tbody>
+</table>

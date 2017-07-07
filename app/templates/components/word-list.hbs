@@ -1,20 +1,36 @@
 <table class="table table-hover">
   <thead>
   <tr>
-    <th>Word</th>
-    <th>Description</th>
-    <th>ID</th>
+    <th>Слово</th>
+    <th>Описание</th>
+    <th>Сленг</th>
+    <th>Диалект</th>
+    <th>Ссылка</th>
+  {{#if user.view.moderator}}
+    <th>Управление</th>
+  {{/if}}
   </tr>
   </thead>
   <tbody>
-  {{#each words as |word|}}
-    <tr class="">
-      <td>{{word.name}}</td>
-      <td>{{word.description}}</td>
-      <td>
-        <button class="btn btn-info">More info</button>
-      </td>
-    </tr>
-  {{/each}}
+  {{#if words}}
+    {{#each words as |word|}}
+      <tr class="">
+        <td>{{word.word}}</td>
+        <td>{{word.description}}</td>
+        <td>{{word.slang}}</td>
+        <td>{{word.dialect}}</td>
+        <td>
+          <a href="{{word.url}}" class="btn btn-info" target="_blank">Download</a>
+        </td>
+      {{#if user.view.moderator}}
+        <td>
+        {{!--{{#link-to 'signin' class='btn btn-default btn-md' role="button"}}Sign In{{/link-to}}--}}
+          <button {{action 'changeword' word}}>Изменить</button>
+          <button {{action 'deleteword' word}}>Удалить</button>
+        </td>
+      {{/if}}
+      </tr>
+    {{/each}}
+  {{/if}}
   </tbody>
 </table>

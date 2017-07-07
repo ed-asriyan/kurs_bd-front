@@ -1,0 +1,17 @@
+{{input value=word class='createword__inputword' placeholder='new word' type="text"}}
+<span>Диалект:</span>
+<select class="createword__select_dialects" onchange={{action 'getdialect' value="target.value"}}>
+  {{#each select_dialects as |dialect|}}
+    <option>{{dialect.dialect}}</option>
+  {{/each}}
+</select>
+<span>Сленг:</span>
+<select class="createword__select_slangs" onchange={{action 'getslang' value="target.value"}}>
+  {{#each select_slangs as |slang|}}
+    <option>{{slang.slang}}</option>
+  {{/each}}
+</select>
+<span>Описание:</span>
+<textarea onchange={{action 'getdescription' value='target.value'}}></textarea>
+<input class='createword__inputfile' type="file" onchange={{action 'addfile' }}>
+<button onclick={{action 'createword' }}>Создать</button>

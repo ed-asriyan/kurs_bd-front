@@ -1,0 +1,16 @@
+<span>{{dialect.dialect}}</span>
+<span>Новое название:</span>
+{{input value=newdialect class='changedialect__inputdialect' placeholder='new name' type="text"}}
+<span>Язык:</span>
+<select class="changedialect__select_languages" onchange={{action 'getlanguage' value="target.value"}}>
+  {{#each select_languages as |language|}}
+    {{#if language.selected}}
+      <option selected>{{language.language}}</option>
+    {{else}}
+      <option>{{language.language}}</option>
+    {{/if}}
+  {{/each}}
+</select>
+<span>Описание:</span>
+<textarea onchange={{action 'getdescription' value='target.value'}}>{{dialect.description}}</textarea>
+<button onclick={{action 'changedialect'}}>Изменить</button>

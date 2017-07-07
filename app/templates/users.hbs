@@ -1,0 +1,29 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Ник</th>
+    {{#if user.view.admin}}
+      <th>Управление</th>
+    {{/if}}
+  </tr>
+  </thead>
+  <tbody>
+  {{#if users}}
+    {{#each users as |iter|}}
+      <tr class="">
+        <td>{{iter.username}}</td>
+        {{#if user.view.admin}}
+          <td>
+            {{!--{{#link-to 'signin' class='btn btn-default btn-md' role="button"}}Sign In{{/link-to}}--}}
+            {{#if iter.moderator}}
+              <button {{action 'setusual' iter}}>Сделать обычным</button>
+            {{else}}
+              <button {{action 'setmoderator' iter}}>Сделать модератором</button>
+            {{/if}}
+          </td>
+        {{/if}}
+      </tr>
+    {{/each}}
+  {{/if}}
+  </tbody>
+</table>

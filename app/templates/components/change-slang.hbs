@@ -1,0 +1,6 @@
+<span>{{slang.slang}}</span>
+<span>Новое название:</span>
+{{input value=newslang class='changeslang__inputslang' placeholder='new name' type="text"}}
+<span>Описание:</span>
+<textarea onchange={{action 'getdescription' value='target.value'}}>{{slang.description}}</textarea>
+<button onclick={{action 'changeslang'}}>Изменить</button>

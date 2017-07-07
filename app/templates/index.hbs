@@ -1,5 +1,31 @@
-<div class="row">
-  <div class="col-md-6">
-    {{word-list words=model.words}}
+<div>
+  <div class="row">
+    {{input value=word_search class='search__word' placeholder='word' type="text"}}
+    <button class="search__btn" {{action 'search'}}>Поиск</button>
+
+    <span>Диалект:</span>
+    <select class="search__select_dialects" onchange={{action 'getdialect' value="target.value"}}>
+      <option>All</option>
+      {{#each select_dialects as |dialect|}}
+        <option>{{dialect.dialect}}</option>
+      {{/each}}
+    </select>
+
+    <span>Сленг:</span>
+    <select class="search__select_slangs" onchange={{action 'getslang' value="target.value"}}>
+      <option>All</option>
+      {{#each select_slangs as |slang|}}
+        <option>{{slang.slang}}</option>
+      {{/each}}
+    </select>
+    {{#if user.view.moderator}}
+       <button {{action 'createword'}}>Создать слово</button>
+    {{/if}}
   </div>
 </div>
+<div class="row">
+  <div class="col-md-7">
+    {{word-list words=words user=user}}
+  </div>
+</div>
+

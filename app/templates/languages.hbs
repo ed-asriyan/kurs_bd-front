@@ -1,0 +1,30 @@
+{{#if user.view.moderator}}
+<button {{action "createlanguage"}}>Создать язык</button>
+{{/if}}
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Язык</th>
+    <th>Описание</th>
+  {{#if user.view.moderator}}
+    <th>Управление</th>
+  {{/if}}
+  </tr>
+  </thead>
+  <tbody>
+  {{#if languages}}
+    {{#each languages as |language|}}
+      <tr class="">
+        <td>{{language.language}}</td>
+        <td>{{language.description}}</td>
+        {{#if user.view.moderator}}
+        <td>
+          <button {{action "changelanguage" language}}>Изменить</button>
+          <button {{action "deletelanguage" language}}>Удалить</button>
+        </td>
+        {{/if}}
+      </tr>
+    {{/each}}
+  {{/if}}
+  </tbody>
+</table>

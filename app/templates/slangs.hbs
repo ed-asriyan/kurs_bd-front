@@ -1,0 +1,30 @@
+{{#if user.view.moderator}}
+  <button {{action "createslang"}}>Создать сленг</button>
+{{/if}}
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Сленг</th>
+    <th>Описание</th>
+    {{#if user.view.moderator}}
+      <th>Управление</th>
+    {{/if}}
+  </tr>
+  </thead>
+  <tbody>
+  {{#if slangs}}
+    {{#each slangs as |slang|}}
+      <tr class="">
+        <td>{{slang.slang}}</td>
+        <td>{{slang.description}}</td>
+        {{#if user.view.moderator}}
+          <td>
+            <button {{action "changeslang" slang}}>Изменить</button>
+            <button {{action "deleteslang" slang}}>Удалить</button>
+          </td>
+        {{/if}}
+      </tr>
+    {{/each}}
+  {{/if}}
+  </tbody>
+</table>
